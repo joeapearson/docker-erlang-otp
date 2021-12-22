@@ -75,7 +75,8 @@ jobs:
             -t $image `
             $variant
 
-          # It looks like the official images repo does contain some level of support for testing
-          # windows images but I'm not certain how this should be implemented.
+          git clone https://github.com/docker-library/official-images.git .\official-images
+
+          bash .\official-images\test\run.sh "$image"
 
           docker images
